@@ -1,0 +1,44 @@
+{
+  "name": "TestAngCrud",
+  "version": "0.0.1",
+  "description": "TestAngCrud",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.5.0",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js",
+    "bardjs": "~0.1.8"
+  },
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "angular": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-route": "~1.4.7",
+    "angular-storage": "~0.5.0",
+    "angular-aria": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-resource": "~1.5.0",
+    "extras.angular.plus": "~0.9.2",
+    "font-awesome": "~4.2.0",
+    "moment": "~2.6.0",
+    "angular-ui-router": "~0.2.12",
+    "toastr": "~2.1.0",
+    "angular-animate": "~1.5.0",
+    "angular-bootstrap": "~0.14.3",
+    "ng-table": "~0.3.3",
+    "api-check": "~7.5.3",
+    "angular-formly": "~7.2.0",
+    "angular-formly-templates-bootstrap": "~6.1.5",
+    "angular-devise": "1.1.0",
+    "bootstrap": "3.3.5",
+    "angular-material": "~0.11.4",
+    "material-design-icons": "~2.0.0"
+  }
+}
