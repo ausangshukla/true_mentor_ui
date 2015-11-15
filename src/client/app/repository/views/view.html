@@ -1,30 +1,17 @@
-<section class="mainbar" data-ng-init="vm.toViewRepository()">
-
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-			Repository View
-    </div>
-    <div class="panel-body">
-
-      <form novalidate>
-        <formly-form model="vm.repository" fields="vm.formFields">
-        </formly-form>
-      </form>
-
-      <hr/>
-      <div>
-        <a class="btn btn-success" href="/repository/{{vm.repository.id}}/edit">
-          <i class="glyphicon glyphicon-edit"></i> Edit
-        </a>
-        <a class="btn btn-danger" title="Remove" ng-really-message="Are you sure ?" ng-really-click="vm.remove()" item="vm.repository">
-          <i class="glyphicon glyphicon-remove-circle"></i> Delete
-        </a>
-        <a class="btn btn-primary" href="/repository">
-          <i class="glyphicon glyphicon-list"></i> List Repositories
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-</section>
+<div ng-cloak data-ng-init="vm.toViewRepository()">
+  <md-content class="md-padding">
+    <md-card>
+      <img ng-src="{{vm.repository.image}}" class="md-card-image">
+      <md-card-content>
+        <h2 class="md-title">{{vm.repository.name}}</h2>
+        <p>
+          {{vm.repository.description}}
+        </p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-raised md-primary">Action 1</md-button>
+        <md-button class="md-raised md-warn"> Action 2</md-button>
+      </md-card-actions>
+    </md-card> 
+  </md-content>
+</div>

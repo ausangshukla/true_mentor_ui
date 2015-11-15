@@ -8,8 +8,18 @@
       Close Sidenav Left
     </md-button>
     <p hide-md show-gt-md>
-      This sidenav is locked open on your device. To go back to the default behavior,
-      narrow your display.
+      <md-list>
+      	<md-list-item>
+      		<a ui-sref="listRepository" class="md-raised md-primary">Repositories</a>
+      	</md-list-item>
+      	<md-list-item>
+      		<a ui-sref="ideas" class="md-raised md-primary">Ideas</a>
+      	</md-list-item>
+      	<md-list-item>
+      		<a ui-sref="activities" class="md-raised md-primary">Activities</a>
+      	</md-list-item>
+      </md-list>
+      
     </p>
   </md-content>
 </md-sidenav>

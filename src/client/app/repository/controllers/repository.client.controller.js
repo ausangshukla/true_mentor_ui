@@ -7,27 +7,25 @@
 
     RepositoryController.$inject = ['logger',
         '$stateParams',
-        '$location',
+        '$state',
         'Repository',
         'TableSettings',
-        'RepositoryForm',
-        'repositories'];
+        'RepositoryForm'];
     /* @ngInject */
     function RepositoryController(logger,
         $stateParams,
-        $location,
+        $state,
         Repository,
         TableSettings,
-        RepositoryForm,
-        repositories) {
+        RepositoryForm) {
 
         var vm = this;
         vm.tableParams = TableSettings.getParams(Repository);
         vm.repository = {};
-        vm.repositories = repositories;
+        vm.repositories = {};
         
         vm.loadAll = function() {
-        	repositories = Repository.query();
+        	vm.repositories = Repository.query();
         }
 
         vm.setFormFields = function(disabled) {
@@ -41,7 +39,7 @@
             // Redirect after save
             repository.$save(function(response) {
                 logger.success('Repository created');
-                $location.path('repository/' + response.id);
+                $state.go("viewRepository", {"repositoryId" : response.id});
             }, function(errorResponse) {
                 vm.error = errorResponse.data.summary;
             });
@@ -60,7 +58,7 @@
             } else {
                 vm.repository.$remove(function() {
                     logger.success('Repository deleted');
-                    $location.path('/repository');
+                    $state.go('listRepository');
                 });
             }
 
@@ -72,16 +70,23 @@
 
             repository.$update(function() {
                 logger.success('Repository updated');
-                $location.path('repository/' + repository.id);
+                $state.go("viewRepository", {"repositoryId" : repository.id});
             }, function(errorResponse) {
                 vm.error = errorResponse.data.summary;
             });
         };
 
         vm.toViewRepository = function() {
-            vm.repository = Repository.get({repositoryId: $stateParams.repositoryId});
-            vm.setFormFields(true);
+            Repository.get({repositoryId: $stateParams.repositoryId}, function(response){
+            	vm.repository = response;
+                vm.setFormFields(true);
+            });
+            
         };
+        
+        vm.showDetails = function(repositoryId) {
+        	$state.go("viewRepository", {"repositoryId" : repositoryId});
+        }
 
         vm.toEditRepository = function() {
             vm.repository = Repository.get({repositoryId: $stateParams.repositoryId});
